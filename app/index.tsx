@@ -9,7 +9,8 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
+      <Text>HabitApp</Text>
+      <Text>Alışkanlık Takip Uygulaması</Text>
     </View>
   );
 }
