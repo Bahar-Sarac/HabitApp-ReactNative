@@ -1,4 +1,4 @@
-import { Text, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 
 export default function Index() {
   return (
@@ -11,6 +11,7 @@ export default function Index() {
     >
       <Text>HabitApp</Text>
       <Text>Alışkanlık Takip Uygulaması</Text>
+      <TouchableOpacity>Giriş Yap</TouchableOpacity>
     </View>
   );
 }
