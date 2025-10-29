@@ -7,12 +7,12 @@ import {
   View,
 } from "react-native";
 
-const Login = () => {
+const Register = () => {
   return (
     <View style={styles.kullaniciKayit}>
       {/* <View style={styles.kullaniciKayitIcon}>
-                  <Ionicons name="person-add" color="#440625ff" size={50} />
-                </View>*/}
+              <Ionicons name="person-add" color="#440625ff" size={50} />
+            </View>*/}
       <Text style={styles.hosgeldinizText}>
         {"HabitApp'e"}
         {"\n"}Hoş Geldiniz!
@@ -21,11 +21,19 @@ const Login = () => {
         <View style={{ gap: 16, flexDirection: "column" }}>
           <TextInput
             style={styles.kullaniciKayitText}
+            placeholder="Ad-Soyad"
+          ></TextInput>
+          <TextInput
+            style={styles.kullaniciKayitText}
             placeholder="E-posta"
           ></TextInput>
           <TextInput
             style={styles.kullaniciKayitText}
             placeholder="Şifre"
+          ></TextInput>
+          <TextInput
+            style={styles.kullaniciKayitText}
+            placeholder="Şifre Tekrar"
           ></TextInput>
         </View>
         <View>
@@ -38,7 +46,7 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
 
 const styles = StyleSheet.create({
   kullaniciKayit: {
