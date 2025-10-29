@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
   hosgeldinizText: {
     fontSize: 28,
     fontWeight: "bold",
-    color: "#5fedd1ff",
+    color: "#82F27E",
   },
   /*kullaniciKayitIcon: {
     width: 80,
@@ -75,10 +75,9 @@ const styles = StyleSheet.create({
   kullaniciKayitButon: {
     width: 100,
     marginLeft: 50,
-    backgroundColor: "#5fedd1ff",
+    backgroundColor: "#82F27E",
     fontSize: 16,
-    fontWeight: "bold",
-    color: "#440625ff",
+    color: "#9130F2",
     padding: 10,
     borderRadius: 20,
     textAlign: "center",

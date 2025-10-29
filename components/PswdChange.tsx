@@ -1,42 +1,33 @@
 import React from "react";
 import {
-  StyleSheet,
-  Text,
-  TextInput,
-  View
+    StyleSheet,
+    Text,
+    TextInput,
+    View
 } from "react-native";
 
 const Login = () => {
   return (
     <View style={styles.kullaniciKayit}>
-      {/* <View style={styles.kullaniciKayitIcon}>
-                  <Ionicons name="person-add" color="#440625ff" size={50} />
-                </View>*/}
       <Text style={styles.hosgeldinizText}>
-        {"HabitApp'e"}
-        {"\n"}Hoş Geldiniz!
+        HabitApp
+        {"\n"}Şifre Sıfırlama
       </Text>
       <View style={{ gap: 20, flexDirection: "column" }}>
         <View style={{ gap: 16, flexDirection: "column" }}>
           <TextInput
             style={styles.kullaniciKayitText}
-            placeholder="E-posta"
+            placeholder="E-mail"
           ></TextInput>
           <TextInput
             style={styles.kullaniciKayitText}
-            placeholder="Şifre"
+            placeholder="Yeni Şifre"
+          ></TextInput>
+          <TextInput
+            style={styles.kullaniciKayitText}
+            placeholder="Yeni Şifre Tekrar"
           ></TextInput>
         </View>
-        {/*<View style={{ alignItems: "flex-end" }}>
-          <TouchableOpacity>
-            <Text style={{ color: "#82F27E" }}>Şifremi Unuttum</Text>
-          </TouchableOpacity>
-        </View>
-         <View>
-          <TouchableOpacity>
-            <Text style={styles.kullaniciKayitButon}>Giriş Yap</Text>
-          </TouchableOpacity>
-        </View>*/}
       </View>
     </View>
   );
@@ -53,22 +44,13 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#82F27E",
   },
-  /*kullaniciKayitIcon: {
-    width: 80,
-    height: 80,
-    backgroundColor: "white",
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: 40,
-    marginLeft: 50,
-  },*/
   kullaniciKayitText: {
     width: 200,
     backgroundColor: "white",
     padding: 10,
     borderRadius: 10,
   },
-  /*kullaniciKayitButon: {
+  kullaniciKayitButon: {
     width: 100,
     marginLeft: 50,
     backgroundColor: "#82F27E",
@@ -77,5 +59,5 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 20,
     textAlign: "center",
-  },*/
+  },
 });
