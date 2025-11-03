@@ -1,6 +1,7 @@
-import Login from "@/components/Login";
-import PswdChange from "@/components/PswdChange";
-import Register from "@/components/Register";
+import Habit from "@/componenets/Habit";
+import Login from "@/componenets/Login";
+import PswdChange from "@/componenets/PswdChange";
+import Register from "@/componenets/Register";
 import { useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
@@ -24,7 +25,7 @@ export default function Index() {
           </View>
           {/* Giriş Yap Butonu */}
           <View>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => setScreen("habit")}>
               <Text style={styles.kullaniciKayitButon}>Giriş Yap</Text>
             </TouchableOpacity>
           </View>
@@ -50,9 +51,15 @@ export default function Index() {
           <View
             style={{ flexDirection: "row", gap: 10, justifyContent: "center" }}
           >
-            <Text style={{ color: "white" }}>Hesabınız var mı?</Text>
+            <Text style={{ color: "white", fontSize: 16 }}>
+              Hesabınız var mı?
+            </Text>
             <TouchableOpacity onPress={() => setScreen("login")}>
-              <Text style={{ color: "#82F27E" }}>Giriş Yapın</Text>
+              <Text
+                style={{ color: "#82F27E", fontSize: 16, fontWeight: "bold" }}
+              >
+                Giriş Yapın
+              </Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -83,6 +90,10 @@ export default function Index() {
           </View>
         </View>
       )}
+
+      {screen === "habit" && (
+        <Habit />
+      )}
     </View>
   );
 }
@@ -97,8 +108,8 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   kullaniciKayitButon: {
-    width: 100,
-    marginLeft: 50,
+    width: 120,
+    marginLeft: 60,
     backgroundColor: "#82F27E",
     fontSize: 16,
     color: "#9130F2",

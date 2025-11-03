@@ -1,14 +1,10 @@
+import { Ionicons } from "@expo/vector-icons";
 import React from "react";
-import {
-  StyleSheet,
-  Text,
-  TextInput,
-  View
-} from "react-native";
+import { StyleSheet, Text, TextInput, View } from "react-native";
 
 const Login = () => {
   return (
-    <View style={styles.kullaniciKayit}>
+    <View style={styles.kullaniciGiris}>
       {/* <View style={styles.kullaniciKayitIcon}>
                   <Ionicons name="person-add" color="#440625ff" size={50} />
                 </View>*/}
@@ -18,25 +14,21 @@ const Login = () => {
       </Text>
       <View style={{ gap: 20, flexDirection: "column" }}>
         <View style={{ gap: 16, flexDirection: "column" }}>
+          <View style={styles.inputContainer}>
+          <Ionicons name="mail-outline" size={20} color="#82F27E" style={{ marginRight: 8 }} />
           <TextInput
-            style={styles.kullaniciKayitText}
+            style={styles.kullaniciGirisText}
             placeholder="E-posta"
           ></TextInput>
+          </View>
+          <View style={styles.inputContainer}>
+          <Ionicons name="lock-closed-outline" size={20} color="#82F27E" style={{ marginRight: 8 }} />
           <TextInput
-            style={styles.kullaniciKayitText}
+            style={styles.kullaniciGirisText}
             placeholder="Şifre"
           ></TextInput>
+          </View>
         </View>
-        {/*<View style={{ alignItems: "flex-end" }}>
-          <TouchableOpacity>
-            <Text style={{ color: "#82F27E" }}>Şifremi Unuttum</Text>
-          </TouchableOpacity>
-        </View>
-         <View>
-          <TouchableOpacity>
-            <Text style={styles.kullaniciKayitButon}>Giriş Yap</Text>
-          </TouchableOpacity>
-        </View>*/}
       </View>
     </View>
   );
@@ -45,7 +37,7 @@ const Login = () => {
 export default Login;
 
 const styles = StyleSheet.create({
-  kullaniciKayit: {
+  kullaniciGiris: {
     gap: 20,
   },
   hosgeldinizText: {
@@ -53,7 +45,16 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#82F27E",
   },
-  /*kullaniciKayitIcon: {
+  inputContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    borderWidth: 1,
+    borderColor: "#82F27E",
+    borderRadius: 8,
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+  },
+  /*kullaniciGirisIcon: {
     width: 80,
     height: 80,
     backgroundColor: "white",
@@ -62,20 +63,10 @@ const styles = StyleSheet.create({
     borderRadius: 40,
     marginLeft: 50,
   },*/
-  kullaniciKayitText: {
+  kullaniciGirisText: {
     width: 200,
     backgroundColor: "white",
     padding: 10,
     borderRadius: 10,
   },
-  /*kullaniciKayitButon: {
-    width: 100,
-    marginLeft: 50,
-    backgroundColor: "#82F27E",
-    fontSize: 16,
-    color: "#9130F2",
-    padding: 10,
-    borderRadius: 20,
-    textAlign: "center",
-  },*/
 });
