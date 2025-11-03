@@ -1,9 +1,11 @@
-import Habit from "@/componenets/Habit";
-import Login from "@/componenets/Login";
-import PswdChange from "@/componenets/PswdChange";
-import Register from "@/componenets/Register";
+import Habit from "@/components/Habit";
+import Login from "@/components/Login";
+import PswdChange from "@/components/PswdChange";
+import Register from "@/components/Register";
 import { useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+
+import { router } from "expo-router";
 
 export default function Index() {
   const [screen, setScreen] = useState("login"); // login | register | pswdChange
@@ -25,7 +27,7 @@ export default function Index() {
           </View>
           {/* Giriş Yap Butonu */}
           <View>
-            <TouchableOpacity onPress={() => setScreen("habit")}>
+            <TouchableOpacity onPress={() => router.push("/habit")}>
               <Text style={styles.kullaniciKayitButon}>Giriş Yap</Text>
             </TouchableOpacity>
           </View>
@@ -91,9 +93,7 @@ export default function Index() {
         </View>
       )}
 
-      {screen === "habit" && (
-        <Habit />
-      )}
+      {screen === "habit" && <Habit />}
     </View>
   );
 }
