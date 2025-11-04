@@ -3,90 +3,68 @@ import Login from "@/components/Login";
 import PswdChange from "@/components/PswdChange";
 import Register from "@/components/Register";
 import { useState } from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 import "./globals.css";
 
-import { router } from "expo-router";
 
 export default function Index() {
   const [screen, setScreen] = useState("login"); // login | register | pswdChange
 
   return (
-    <View style={styles.container}>
+    <View className="flex-1 justify-center items-center bg-purple-600 p-2">
       {screen === "login" && (
-        <View
-          style={{ flexDirection: "column", gap: 10, justifyContent: "center" }}
-        >
+        <View className="flex-col gap-4 justify-center">
           <Login />
           {/* Şifremi Unuttum */}
-          <View style={{ alignItems: "flex-end" }}>
+          <View className="items-end">
             <TouchableOpacity onPress={() => setScreen("pswdChange")}>
-              <Text style={{ color: "#82F27E", alignItems: "flex-end" }}>
-                Şifremi Unuttum
-              </Text>
+              <Text className="text-green-300 items-end">Şifremi Unuttum</Text>
             </TouchableOpacity>
           </View>
           {/* Giriş Yap Butonu */}
           <View>
-            <TouchableOpacity onPress={() => router.push("/habit")}>
-              <Text style={styles.kullaniciKayitButon}>Giriş Yap</Text>
+            <TouchableOpacity onPress={() => setScreen("habit")}>
+            {/*onPress={() => router.push("/habit")}>*/}
+              <Text className="w-40 ml-16 bg-green-300 color-purple-600 p-2 rounded-2xl text-center">
+                Giriş Yap
+              </Text>
             </TouchableOpacity>
           </View>
           {/* Kayıt Ol */}
-          <View
-            style={{ flexDirection: "row", gap: 10, justifyContent: "center" }}
-          >
-            <Text style={{ color: "white", fontSize: 16 }}>
-              Hesabınız yok mu?
-            </Text>
+          <View className="flex-row gap-2 justify-center">
+            <Text className="text-white text-lg">Hesabınız yok mu?</Text>
             <TouchableOpacity onPress={() => setScreen("register")}>
-              <Text style={{ color: "#82F27E", fontSize: 16 }}>Kaydolun</Text>
+              <Text className="text-green-300 text-lg">Kaydolun</Text>
             </TouchableOpacity>
           </View>
         </View>
       )}
 
       {screen === "register" && (
-        <View
-          style={{ flexDirection: "column", gap: 10, justifyContent: "center" }}
-        >
+        <View className="flex-col gap-4 justify-center">
           <Register />
-          <View
-            style={{ flexDirection: "row", gap: 10, justifyContent: "center" }}
-          >
-            <Text style={{ color: "white", fontSize: 16 }}>
-              Hesabınız var mı?
-            </Text>
+          <View className="flex-row gap-2 justify-center">
+            <Text className="text-white text-lg">Hesabınız var mı?</Text>
             <TouchableOpacity onPress={() => setScreen("login")}>
-              <Text
-                style={{ color: "#82F27E", fontSize: 16, fontWeight: "bold" }}
-              >
-                Giriş Yapın
-              </Text>
+              <Text className="text-green-300 text-lg ">Giriş Yapın</Text>
             </TouchableOpacity>
           </View>
         </View>
       )}
 
       {screen === "pswdChange" && (
-        <View
-          style={{ flexDirection: "column", gap: 10, justifyContent: "center" }}
-        >
+        <View className="flex-col gap-4 justify-center">
           <PswdChange />
-          <View
-            style={{
-              flexDirection: "column",
-              gap: 10,
-              justifyContent: "center",
-            }}
-          >
+          <View className="flex-col gap-4 justify-center">
             <View>
               <TouchableOpacity onPress={() => setScreen("login")}>
-                <Text style={styles.kullaniciKayitButon}>Kaydet</Text>
+                <Text className="w-40 ml-16 bg-green-300 color-purple-600 p-2 rounded-2xl text-center text-lg">
+                  Kaydet
+                </Text>
               </TouchableOpacity>
             </View>
             <TouchableOpacity onPress={() => setScreen("login")}>
-              <Text style={{ color: "#82F27E", textAlign: "center" }}>
+              <Text className="text-green-300 text-center text-lg">
                 Geri Dön
               </Text>
             </TouchableOpacity>
@@ -94,28 +72,8 @@ export default function Index() {
         </View>
       )}
 
-      {screen === "habit" && <Habit />}
+      {screen === "habit" && 
+      <Habit />}
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#9130F2",
-    gap: 20,
-    padding: 10,
-  },
-  kullaniciKayitButon: {
-    width: 120,
-    marginLeft: 60,
-    backgroundColor: "#82F27E",
-    fontSize: 16,
-    color: "#9130F2",
-    padding: 10,
-    borderRadius: 20,
-    textAlign: "center",
-  },
-});
