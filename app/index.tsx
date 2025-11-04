@@ -4,6 +4,7 @@ import PswdChange from "@/components/PswdChange";
 import Register from "@/components/Register";
 import { useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import "./globals.css";
 
 import { router } from "expo-router";
 

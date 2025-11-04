@@ -46,7 +46,7 @@ const AlmostThere = () => {
             borderColor: "#ffffffff",
           }}
         >
-          <Text style={{ color: "#ffffffff", fontSize: 16 }}>35%</Text>
+          <Text className="text-white text-xl">35%</Text>
         </View>
       </View>
     </View>
