@@ -1,11 +1,10 @@
-import Habit from "@/components/Habit";
 import Login from "@/components/Login";
 import PswdChange from "@/components/PswdChange";
 import Register from "@/components/Register";
+import { router } from "expo-router";
 import { useState } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import "./globals.css";
-
 
 export default function Index() {
   const [screen, setScreen] = useState("login"); // login | register | pswdChange
@@ -23,8 +22,7 @@ export default function Index() {
           </View>
           {/* Giriş Yap Butonu */}
           <View>
-            <TouchableOpacity onPress={() => setScreen("habit")}>
-            {/*onPress={() => router.push("/habit")}>*/}
+            <TouchableOpacity onPress={() => router.push("/habit")}>
               <Text className="w-40 ml-16 bg-green-300 color-purple-600 p-2 rounded-2xl text-center">
                 Giriş Yap
               </Text>
@@ -71,9 +69,6 @@ export default function Index() {
           </View>
         </View>
       )}
-
-      {screen === "habit" && 
-      <Habit />}
     </View>
   );
 }
