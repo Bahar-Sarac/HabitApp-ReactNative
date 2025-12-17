@@ -16,7 +16,7 @@ const eklenecekAliskanliklar = [
  */
 const HabitCard = ({ title, onPress }: { title: string; onPress: () => void }) => (
   <TouchableOpacity
-    className="w-44 h-8 rounded-xl justify-center items-center shadow-lg active:bg-green-300"
+    className="w-44 h-8 rounded-xl justify-center items-center shadow-lg active:bg-grey-300"
     onPress={onPress}
     activeOpacity={0.8}
   >

@@ -1,4 +1,5 @@
 import CompletedBar from "@/components/habit/CompletedBar";
+import { ExemplaryHabits } from "@/components/habit/ExemplaryHabits";
 import HabitListSection from "@/components/habit/HabitListSection";
 import { FontAwesome } from "@expo/vector-icons";
 import { BlurView } from "expo-blur";
@@ -105,6 +106,8 @@ const HabitScreen = () => {
             </View>
           </View>
 
+          <ExemplaryHabits />
+          
           {/* Completed Bar Section */}
           <CompletedBar />
 
