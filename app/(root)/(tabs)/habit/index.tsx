@@ -96,13 +96,13 @@ const HabitScreen = () => {
         <View className="flex flex-col gap-8 py-10 px-4">
           <View className="w-full flex-col gap-2">
             <View className="w-full flex-row items-center justify-between">
-              <Text className="text-gray-800 font-bold text-3xl">My Challenges</Text>
+              <Text className="text-gray-800 font-bold text-3xl">Alışkanlıklarım</Text>
               <TouchableOpacity onPress={() => setModalVisible(true)}>
                 <FontAwesome name="plus" color="#2563EB" size={20} />
               </TouchableOpacity>
             </View>
             <View className="w-full">
-              <Text className="text-gray-500">Wed, 18</Text>
+              <Text className="text-gray-500">Çarşamba, 18</Text>
             </View>
           </View>
 
