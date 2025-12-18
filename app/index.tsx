@@ -10,20 +10,20 @@ export default function Index() {
   const [screen, setScreen] = useState("login"); // login | register | pswdChange
 
   return (
-    <View className="flex-1 justify-center items-center bg-purple-600 p-2">
+    <View className="flex-1 justify-center items-center bg-blue-600 p-2">
       {screen === "login" && (
         <View className="flex-col gap-4 justify-center">
           <Login />
           {/* Şifremi Unuttum */}
           <View className="items-end">
             <TouchableOpacity onPress={() => setScreen("pswdChange")}>
-              <Text className="text-green-300 items-end">Şifremi Unuttum</Text>
+              <Text className="text-emerald-300 items-end">Şifremi Unuttum</Text>
             </TouchableOpacity>
           </View>
           {/* Giriş Yap Butonu */}
           <View>
             <TouchableOpacity onPress={() => router.push("/habit")}>
-              <Text className="w-40 ml-16 bg-green-300 color-purple-600 p-2 rounded-2xl text-center">
+              <Text className="w-40 ml-16 bg-emerald-300 color-blue-600 p-2 rounded-2xl text-center">
                 Giriş Yap
               </Text>
             </TouchableOpacity>
@@ -32,7 +32,7 @@ export default function Index() {
           <View className="flex-row gap-2 justify-center">
             <Text className="text-white text-lg">Hesabınız yok mu?</Text>
             <TouchableOpacity onPress={() => setScreen("register")}>
-              <Text className="text-green-300 text-lg">Kaydolun</Text>
+              <Text className="text-emerald-300 text-lg">Kaydolun</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -44,7 +44,7 @@ export default function Index() {
           <View className="flex-row gap-2 justify-center">
             <Text className="text-white text-lg">Hesabınız var mı?</Text>
             <TouchableOpacity onPress={() => setScreen("login")}>
-              <Text className="text-green-300 text-lg ">Giriş Yapın</Text>
+              <Text className="text-emerald-300 text-lg ">Giriş Yapın</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -56,13 +56,13 @@ export default function Index() {
           <View className="flex-col gap-4 justify-center">
             <View>
               <TouchableOpacity onPress={() => setScreen("login")}>
-                <Text className="w-40 ml-16 bg-green-300 color-purple-600 p-2 rounded-2xl text-center text-lg">
+                <Text className="w-40 ml-16 bg-emerald-300 color-blue-600 p-2 rounded-2xl text-center text-lg">
                   Kaydet
                 </Text>
               </TouchableOpacity>
             </View>
             <TouchableOpacity onPress={() => setScreen("login")}>
-              <Text className="text-green-300 text-center text-lg">
+              <Text className="text-emerald-300 text-center text-lg">
                 Geri Dön
               </Text>
             </TouchableOpacity>

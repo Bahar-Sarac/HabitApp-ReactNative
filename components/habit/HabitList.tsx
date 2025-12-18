@@ -32,7 +32,7 @@ const HabitListSection: React.FC<HabitListSectionProps> = ({ habitList, requestA
               <TouchableOpacity
                 key={dayIndex}
                 className={`w-12 h-12 rounded-full border border-gray-400 flex items-center justify-center ${
-                  day.completed ? "bg-black" : "bg-white"
+                  day.completed ? "bg-emerald-500" : "bg-white"
                 }`}
                 onPress={() => {
                   if (day.completed === null) {

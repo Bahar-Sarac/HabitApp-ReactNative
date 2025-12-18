@@ -1,6 +1,6 @@
 import CompletedBar from "@/components/habit/CompletedBar";
-import { ExemplaryHabits } from "@/components/habit/ExemplaryHabits";
-import HabitListSection from "@/components/habit/HabitListSection";
+import HabitListSection from "@/components/habit/HabitList";
+import { ExemplaryHabits } from "@/components/habit/HabitSuggestion";
 import { FontAwesome } from "@expo/vector-icons";
 import { BlurView } from "expo-blur";
 import React, { useState } from "react";
@@ -96,9 +96,9 @@ const HabitScreen = () => {
         <View className="flex flex-col gap-8 py-10 px-4">
           <View className="w-full flex-col gap-2">
             <View className="w-full flex-row items-center justify-between">
-              <Text className="font-bold text-3xl">My Challenges</Text>
+              <Text className="text-gray-800 font-bold text-3xl">My Challenges</Text>
               <TouchableOpacity onPress={() => setModalVisible(true)}>
-                <FontAwesome name="plus" size={20} />
+                <FontAwesome name="plus" color="#2563EB" size={20} />
               </TouchableOpacity>
             </View>
             <View className="w-full">
@@ -151,7 +151,7 @@ const HabitScreen = () => {
                   onChangeText={setNewHabit}
                 />
                 <TouchableOpacity
-                  className="bg-black p-2 rounded-md"
+                  className="bg-emerald-500 p-2 rounded-md"
                   onPress={() => {
                     setModalVisible(false);
                     setHabitList([
@@ -202,14 +202,14 @@ const HabitScreen = () => {
                 </Text>
                 <View className="flex flex-col gap-1">
                   <TouchableOpacity
-                    className="bg-black p-2 rounded-md"
+                    className="bg-emerald-500 p-2 rounded-md"
                     onPress={() => applyApproval(true)}
                   >
                     <Text className="text-center text-white">Evet</Text>
                   </TouchableOpacity>
                   <TouchableOpacity
                     onPress={() => applyApproval(false)}
-                    className="bg-red-800 p-2 rounded-md"
+                    className="bg-gray-400 p-2 rounded-md"
                   >
                     <Text className="text-center text-white">Hayır</Text>
                   </TouchableOpacity>

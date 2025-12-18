@@ -16,7 +16,7 @@ const eklenecekAliskanliklar = [
  */
 const HabitCard = ({ title, onPress }: { title: string; onPress: () => void }) => (
   <TouchableOpacity
-    className="w-44 h-8 rounded-xl justify-center items-center shadow-lg active:bg-grey-300"
+    className="w-44 h-8 rounded-xl justify-center items-center shadow-lg active:bg-emerald-500"
     onPress={onPress}
     activeOpacity={0.8}
   >
@@ -29,19 +29,13 @@ const HabitCard = ({ title, onPress }: { title: string; onPress: () => void }) =
   </TouchableOpacity>
 );
 
-/* Ana Alışkanlık Önerileri Bileşeni: ExemplaryHabits*/
 export const ExemplaryHabits = () => {
-  // Alışkanlık kartına tıklandığında çalışacak örnek fonksiyon
   const handlePress = (title: string) => {
     console.log(`[EKLEME İŞLEMİ]: "${title}" alışkanlığı seçildi.`);
-    // Gerçek uygulamada: state güncelleme, modal açma veya navigasyon yapma
   };
 
   return (
-    <View
-      className="mt-6 pb-5 bg-white border-t border-gray-100"
-    >
-      {/* Yatay Kaydırma Listesi */}
+    <View className="mt-6 pb-5 bg-white border-t border-gray-100">
       <FlatList
         data={eklenecekAliskanliklar}
         renderItem={({ item }) => (
