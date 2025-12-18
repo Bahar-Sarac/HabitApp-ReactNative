@@ -34,7 +34,7 @@ export default function BreathingExercises() {
   }, []);
 
   return (
-    <View className="items-center my-4">
+    <View className="items-center my-4 ">
       <Animated.View
         style={{ transform: [{ scale }] }}
         className="w-32 h-32 bg-blue-500 rounded-full justify-around items-center p-4 flex-row"

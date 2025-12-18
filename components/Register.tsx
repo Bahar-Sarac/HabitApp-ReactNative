@@ -11,9 +11,6 @@ import {
 const Register = () => {
   return (
     <View style={styles.kullaniciKayit}>
-      {/* <View style={styles.kullaniciKayitIcon}>
-              <Ionicons name="person-add" color="#440625ff" size={50} />
-            </View>*/}
       <Text style={styles.hosgeldinizText}>
         {"HabitApp'e"}
         {"\n"}Hoş Geldiniz!
@@ -21,28 +18,28 @@ const Register = () => {
       <View style={{ gap: 20, flexDirection: "column" }}>
         <View style={{ gap: 16, flexDirection: "column" }}>
           <View style={styles.inputContainer}>
-          <Ionicons name="person-outline" size={20} color="#82F27E" style={{ marginRight: 8 }} />
+          <Ionicons name="person-outline" size={20} color="#6EE7B7" style={{ marginRight: 8 }} />
           <TextInput
             style={styles.kullaniciKayitText}
             placeholder="Ad-Soyad"
           ></TextInput>
           </View>
           <View style={styles.inputContainer}>
-          <Ionicons name="mail-outline" size={20} color="#82F27E" style={{ marginRight: 8 }} />
+          <Ionicons name="mail-outline" size={20} color="#6EE7B7" style={{ marginRight: 8 }} />
           <TextInput
             style={styles.kullaniciKayitText}
             placeholder="E-posta"
           ></TextInput>
           </View>
           <View style={styles.inputContainer}>
-          <Ionicons name="lock-closed-outline" size={20} color="#82F27E" style={{ marginRight: 8 }} />
+          <Ionicons name="lock-closed-outline" size={20} color="#6EE7B7" style={{ marginRight: 8 }} />
           <TextInput
             style={styles.kullaniciKayitText}
             placeholder="Şifre"
           ></TextInput>
           </View>
           <View style={styles.inputContainer}>
-          <Ionicons name="lock-closed-outline" size={20} color="#82F27E" style={{ marginRight: 8 }} />
+          <Ionicons name="lock-closed-outline" size={20} color="#6EE7B7" style={{ marginRight: 8 }} />
           <TextInput
             style={styles.kullaniciKayitText}
             placeholder="Şifre Tekrar"
@@ -68,26 +65,17 @@ const styles = StyleSheet.create({
   hosgeldinizText: {
     fontSize: 28,
     fontWeight: "bold",
-    color: "#82F27E",
+    color: "#6EE7B7",
   },
    inputContainer: {
     flexDirection: "row",
     alignItems: "center",
     borderWidth: 1,
-    borderColor: "#82F27E",
+    borderColor: "#6EE7B7",
     borderRadius: 8,
     paddingHorizontal: 10,
     paddingVertical: 8,
   },
-  /*kullaniciKayitIcon: {
-    width: 80,
-    height: 80,
-    backgroundColor: "white",
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: 40,
-    marginLeft: 50,
-  },*/
   kullaniciKayitText: {
     width: 200,
     backgroundColor: "white",
@@ -97,9 +85,9 @@ const styles = StyleSheet.create({
   kullaniciKayitButon: {
     width: 120,
     marginLeft: 80,
-    backgroundColor: "#82F27E",
+    backgroundColor: "#6EE7B7",
     fontSize: 16,
-    color: "#9130F2",
+    color: "#2563EB",
     padding: 10,
     borderRadius: 20,
     textAlign: "center",

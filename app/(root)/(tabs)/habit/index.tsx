@@ -91,7 +91,7 @@ const HabitScreen = () => {
 
   return (
     <View className="flex-1 relative">
-      <ScrollView className="relative">
+      <ScrollView className="relative" contentContainerStyle={{ paddingBottom: 80 }}>
         {/* Header Section (My Challenges, Wed, 18) */}
         <View className="flex flex-col gap-8 py-10 px-4">
           <View className="w-full flex-col gap-2">

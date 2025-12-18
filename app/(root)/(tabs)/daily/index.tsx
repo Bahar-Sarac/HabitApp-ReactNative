@@ -2,6 +2,7 @@ import Calendar from '@/components/daily/Calendar';
 import Header from '@/components/daily/Header';
 import MoodModal from '@/components/daily/MoodModal';
 import React, { useState } from 'react';
+import { ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 interface DayEntry {
@@ -36,7 +37,8 @@ export default function Daily() {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-gray-50">
+    <ScrollView className=" bg-gray-50">
+    <SafeAreaView className="flex-1 bg-gray-50" >
       <Header />
       <Calendar history={history} onDayPress={handleDayPress} />
       <MoodModal
@@ -48,5 +50,6 @@ export default function Daily() {
         onSave={handleSave}
       />
     </SafeAreaView>
+    </ScrollView>
   );
 }

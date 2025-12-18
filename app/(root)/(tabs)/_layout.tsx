@@ -7,16 +7,13 @@ export default function TabsLayout() {
       screenOptions={{
         tabBarShowLabel: false, // Etiketleri gizle
         headerShown: false, 
-        tabBarActiveTintColor: "#38a169", // Aktif ikon rengi
-        tabBarInactiveTintColor: "#a3a3a3", // Pasif ikon rengi
-        
-        // NATIVEWIND UYUMLU STİLLER
+        tabBarActiveTintColor: "#10B981",
+        tabBarInactiveTintColor: "#9CA3AF",
         tabBarStyle: {
             // Konumlandırma ve Boşluk
-            position: 'absolute', // Ekran kaydırılsa bile sabit kalmasını sağlar
+            position: 'absolute',
             marginHorizontal: 16,
             marginBottom: 16,
-            
             // Görünüm
             height: 56, 
             backgroundColor: 'white', 
@@ -25,8 +22,18 @@ export default function TabsLayout() {
         },
       }}
     >
+      {/*Habits Sekmesi*/}
+      <Tabs.Screen
+        name="habit" 
+        options={{
+          title: 'Habits', 
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="checkbox-outline" size={size} color={color} />
+          ),
+        }}
+      />
 
-      {/* SOL SEKME: Daily */}
+      {/*Daily Sekmesi*/}
       <Tabs.Screen
         name="daily" 
         options={{
@@ -37,18 +44,7 @@ export default function TabsLayout() {
         }}
       />
 
-      {/* ANA SEKME: Habits */}
-      <Tabs.Screen
-        name="habit" 
-        options={{
-          title: 'Habits', 
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="checkbox-outline" size={size} color={color} />
-          ),
-        }}
-      />
-      
-      {/* SAĞ SEKME: Mindfulness */}
+      {/*Mindfulness Sekmesi*/}
       <Tabs.Screen
         name="mindfulness" 
         options={{

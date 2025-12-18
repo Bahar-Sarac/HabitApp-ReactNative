@@ -15,7 +15,7 @@ const Login = () => {
             <Ionicons
               name="mail-outline"
               size={20}
-              color="#82F27E"
+              color="#6EE7B7"
               style={{ marginRight: 8 }}
             />
             <TextInput
@@ -27,7 +27,7 @@ const Login = () => {
             <Ionicons
               name="lock-closed-outline"
               size={20}
-              color="#82F27E"
+              color="#6EE7B7"
               style={{ marginRight: 8 }}
             />
             <TextInput
@@ -39,7 +39,7 @@ const Login = () => {
             <Ionicons
               name="lock-closed-outline"
               size={20}
-              color="#82F27E"
+              color="#6EE7B7"
               style={{ marginRight: 8 }}
             />
             <TextInput
@@ -62,13 +62,13 @@ const styles = StyleSheet.create({
   hosgeldinizText: {
     fontSize: 28,
     fontWeight: "bold",
-    color: "#82F27E",
+    color: "#6EE7B7",
   },
   inputContainer: {
     flexDirection: "row",
     alignItems: "center",
     borderWidth: 1,
-    borderColor: "#82F27E",
+    borderColor: "#6EE7B7",
     borderRadius: 8,
     paddingHorizontal: 10,
     paddingVertical: 8,

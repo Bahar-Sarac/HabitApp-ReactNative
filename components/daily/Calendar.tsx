@@ -71,8 +71,8 @@ function MonthBlock({ monthDate, history, onDayPress, screenWidth }: MonthBlockP
   const CELL_SIZE = (screenWidth - 48) / 7;
 
   return (
-    <View style={{ width: screenWidth }} className="items-center justify-center px-4">
-      <View className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 w-full">
+    <View className="w-screen items-center justify-start bg-gray-100">
+      <View className="bg-gray-50 p-4 w-11/12 rounded-2xl shadow-3xl shadow-blue-600">
         <Text className="text-2xl font-bold text-gray-800 mb-6 capitalize text-center">
           {format(monthDate, 'MMMM yyyy', { locale: tr })}
         </Text>

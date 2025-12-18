@@ -78,13 +78,13 @@ export default function MoodModal({ visible, activeDate, tempEntry, setTempEntry
                 <View className="mb-8">
                   <View className="flex-row justify-between mb-2">
                     <Text className="font-bold text-gray-800 text-lg">Günün Notu</Text>
-                    <Text className="text-sm text-gray-500">{tempEntry.note.length}/150</Text>
+                    <Text className="text-sm text-gray-500">{tempEntry.note.length}/100</Text>
                   </View>
                   <TextInput
                     className="bg-gray-50 border border-gray-200 rounded-xl p-4 h-32 text-base text-gray-800"
                     multiline textAlignVertical="top"
                     placeholder="Bugün neler oldu?"
-                    maxLength={150}
+                    maxLength={100}
                     style={{ fontSize: 16 }}
                     value={tempEntry.note}
                     onChangeText={(text) => setTempEntry({ ...tempEntry, note: text })}
@@ -99,14 +99,14 @@ export default function MoodModal({ visible, activeDate, tempEntry, setTempEntry
                         <Text className="text-gray-400 font-bold mr-3 text-lg">{i+1}.</Text>
                         <TextInput
                           className="flex-1 py-4 text-base text-gray-800"
-                          placeholder="Şükrettiğim bir şey..."
+                          placeholder="Şükrettiğin bir şey..."
                           placeholderTextColor="#9CA3AF"
-                          maxLength={100}
+                          maxLength={75}
                           style={{ fontSize: 16 }}
                           value={tempEntry.gratitude[i]}
                           onChangeText={(text) => updateGratitude(text, i)}
                         />
-                        <Text className="text-xs text-gray-400 ml-2">{tempEntry.gratitude[i].length}/100</Text>
+                        <Text className="text-xs text-gray-400 ml-2">{tempEntry.gratitude[i].length}/75</Text>
                       </View>
                     </View>
                   ))}

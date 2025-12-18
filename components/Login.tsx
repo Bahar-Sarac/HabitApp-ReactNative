@@ -5,9 +5,6 @@ import { StyleSheet, Text, TextInput, View } from "react-native";
 const Login = () => {
   return (
     <View style={styles.kullaniciGiris}>
-      {/* <View style={styles.kullaniciKayitIcon}>
-                  <Ionicons name="person-add" color="#440625ff" size={50} />
-                </View>*/}
       <Text style={styles.hosgeldinizText}>
         {"HabitApp'e"}
         {"\n"}Hoş Geldiniz!
@@ -15,14 +12,14 @@ const Login = () => {
       <View style={{ gap: 20, flexDirection: "column" }}>
         <View style={{ gap: 16, flexDirection: "column" }}>
           <View style={styles.inputContainer}>
-          <Ionicons name="mail-outline" size={20} color="#82F27E" style={{ marginRight: 8 }} />
+          <Ionicons name="mail-outline" size={20} color="#6EE7B7" style={{ marginRight: 8 }} />
           <TextInput
             style={styles.kullaniciGirisText}
             placeholder="E-posta"
           ></TextInput>
           </View>
           <View style={styles.inputContainer}>
-          <Ionicons name="lock-closed-outline" size={20} color="#82F27E" style={{ marginRight: 8 }} />
+          <Ionicons name="lock-closed-outline" size={20} color="#6EE7B7" style={{ marginRight: 8 }} />
           <TextInput
             style={styles.kullaniciGirisText}
             placeholder="Şifre"
@@ -43,26 +40,17 @@ const styles = StyleSheet.create({
   hosgeldinizText: {
     fontSize: 28,
     fontWeight: "bold",
-    color: "#82F27E",
+    color: "#6EE7B7",
   },
   inputContainer: {
     flexDirection: "row",
     alignItems: "center",
     borderWidth: 1,
-    borderColor: "#82F27E",
+    borderColor: "#6EE7B7",
     borderRadius: 8,
     paddingHorizontal: 10,
     paddingVertical: 8,
   },
-  /*kullaniciGirisIcon: {
-    width: 80,
-    height: 80,
-    backgroundColor: "white",
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: 40,
-    marginLeft: 50,
-  },*/
   kullaniciGirisText: {
     width: 200,
     backgroundColor: "white",
