@@ -1,4 +1,7 @@
+import { useRegister } from "@/hooks/auth/useRegister";
+import { RegisterData } from "@/services/auth/registerService";
 import { Ionicons } from "@expo/vector-icons";
+import { router } from "expo-router";
 import React, { useState } from "react";
 import {
   StyleSheet,
@@ -9,13 +12,34 @@ import {
 } from "react-native";
 
 const Register = () => {
+  const { register } = useRegister();
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  
+  const data: RegisterData = {
+    firstName,
+    lastName,
+    email,
+    password,
+  };
+
+  const handleRegister = async () => {
+    try {
+      if (password === confirmPassword) {
+        const response = await register(data);
+        router.push("/habit");
+        console.log("Registration successful:", response);
+      } else {
+        console.error("Parolalar eşleşmiyor.");
+      }
+    } catch (error) {
+      console.error("Registration failed:", error);
+    }
+  };
 
   return (
     <View style={styles.kullaniciKayit}>
@@ -74,6 +98,7 @@ const Register = () => {
             <TextInput
               style={styles.kullaniciKayitText}
               placeholder="Şifre"
+              secureTextEntry={true}
               onChangeText={(text) => setPassword(text)}
             ></TextInput>
           </View>
@@ -87,12 +112,13 @@ const Register = () => {
             <TextInput
               style={styles.kullaniciKayitText}
               placeholder="Şifre Tekrar"
+              secureTextEntry={true}
               onChangeText={(text) => setConfirmPassword(text)}
             ></TextInput>
           </View>
         </View>
         <View>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={handleRegister}>
             <Text style={styles.kullaniciKayitButon}>Kaydol</Text>
           </TouchableOpacity>
         </View>

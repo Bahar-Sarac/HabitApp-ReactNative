@@ -7,7 +7,7 @@ export interface LoginData {
 }
 
 export const LoginService = async (data: LoginData) => {
-  const response = await axios.post(`${BASE_URL}/login`, data, {
+  const response = await axios.post(`${BASE_URL}/users/login`, data, {
     withCredentials: true,
   });
   return response.data;

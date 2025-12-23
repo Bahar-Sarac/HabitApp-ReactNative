@@ -1,7 +1,6 @@
 import Login from "@/components/Login";
 import PswdChange from "@/components/PswdChange";
 import Register from "@/components/Register";
-import { router } from "expo-router";
 import { useState } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import "./globals.css";
@@ -13,21 +12,7 @@ export default function Index() {
     <View className="flex-1 justify-center items-center bg-blue-600 p-2">
       {screen === "login" && (
         <View className="flex-col gap-4 justify-center">
-          <Login />
-          {/* Şifremi Unuttum */}
-          <View className="items-end">
-            <TouchableOpacity onPress={() => setScreen("pswdChange")}>
-              <Text className="text-emerald-300 items-end">Şifremi Unuttum</Text>
-            </TouchableOpacity>
-          </View>
-          {/* Giriş Yap Butonu */}
-          <View>
-            <TouchableOpacity onPress={() => router.push("/habit")}>
-              <Text className="w-40 ml-16 bg-emerald-300 color-blue-600 p-2 rounded-2xl text-center">
-                Giriş Yap
-              </Text>
-            </TouchableOpacity>
-          </View>
+          <Login setScreen={setScreen} />
           {/* Kayıt Ol */}
           <View className="flex-row gap-2 justify-center">
             <Text className="text-white text-lg">Hesabınız yok mu?</Text>
