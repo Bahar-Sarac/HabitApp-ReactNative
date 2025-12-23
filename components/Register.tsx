@@ -1,5 +1,5 @@
 import { Ionicons } from "@expo/vector-icons";
-import React from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -9,6 +9,14 @@ import {
 } from "react-native";
 
 const Register = () => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  
+
   return (
     <View style={styles.kullaniciKayit}>
       <Text style={styles.hosgeldinizText}>
@@ -18,32 +26,69 @@ const Register = () => {
       <View style={{ gap: 20, flexDirection: "column" }}>
         <View style={{ gap: 16, flexDirection: "column" }}>
           <View style={styles.inputContainer}>
-          <Ionicons name="person-outline" size={20} color="#6EE7B7" style={{ marginRight: 8 }} />
-          <TextInput
-            style={styles.kullaniciKayitText}
-            placeholder="Ad-Soyad"
-          ></TextInput>
+            <Ionicons
+              name="person-outline"
+              size={20}
+              color="#6EE7B7"
+              style={{ marginRight: 8 }}
+            />
+            <TextInput
+              style={styles.kullaniciKayitText}
+              placeholder="Ad"
+              onChangeText={(text) => setFirstName(text)}
+            ></TextInput>
           </View>
           <View style={styles.inputContainer}>
-          <Ionicons name="mail-outline" size={20} color="#6EE7B7" style={{ marginRight: 8 }} />
-          <TextInput
-            style={styles.kullaniciKayitText}
-            placeholder="E-posta"
-          ></TextInput>
+            <Ionicons
+              name="person-outline"
+              size={20}
+              color="#6EE7B7"
+              style={{ marginRight: 8 }}
+            />
+            <TextInput
+              style={styles.kullaniciKayitText}
+              placeholder="Soyad"
+              onChangeText={(text) => setLastName(text)}
+            ></TextInput>
           </View>
           <View style={styles.inputContainer}>
-          <Ionicons name="lock-closed-outline" size={20} color="#6EE7B7" style={{ marginRight: 8 }} />
-          <TextInput
-            style={styles.kullaniciKayitText}
-            placeholder="Şifre"
-          ></TextInput>
+            <Ionicons
+              name="mail-outline"
+              size={20}
+              color="#6EE7B7"
+              style={{ marginRight: 8 }}
+            />
+            <TextInput
+              style={styles.kullaniciKayitText}
+              placeholder="E-posta"
+              onChangeText={(text) => setEmail(text)}
+            ></TextInput>
           </View>
           <View style={styles.inputContainer}>
-          <Ionicons name="lock-closed-outline" size={20} color="#6EE7B7" style={{ marginRight: 8 }} />
-          <TextInput
-            style={styles.kullaniciKayitText}
-            placeholder="Şifre Tekrar"
-          ></TextInput>
+            <Ionicons
+              name="lock-closed-outline"
+              size={20}
+              color="#6EE7B7"
+              style={{ marginRight: 8 }}
+            />
+            <TextInput
+              style={styles.kullaniciKayitText}
+              placeholder="Şifre"
+              onChangeText={(text) => setPassword(text)}
+            ></TextInput>
+          </View>
+          <View style={styles.inputContainer}>
+            <Ionicons
+              name="lock-closed-outline"
+              size={20}
+              color="#6EE7B7"
+              style={{ marginRight: 8 }}
+            />
+            <TextInput
+              style={styles.kullaniciKayitText}
+              placeholder="Şifre Tekrar"
+              onChangeText={(text) => setConfirmPassword(text)}
+            ></TextInput>
           </View>
         </View>
         <View>
@@ -67,7 +112,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#6EE7B7",
   },
-   inputContainer: {
+  inputContainer: {
     flexDirection: "row",
     alignItems: "center",
     borderWidth: 1,
