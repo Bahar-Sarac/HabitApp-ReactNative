@@ -1,15 +1,20 @@
-import React from 'react';
-import { Text, View } from 'react-native';
+import React from "react";
+import { Text, View } from "react-native";
 
 interface HeaderProps {
-  username: string;
+  firstName?: string;
+  lastName?: string;
 }
 
-export default function Header({ username }: HeaderProps) {
+export default function Header({ firstName, lastName }: HeaderProps) {
+  console.log("Header component received firstName:", firstName);
   return (
-    <View className="bg-white p-4 rounded-xl m-6">
-      <Text className="text-xl font-bold text-center">
-        Hoş Geldin {username}
+    <View className="">
+      <Text className="text-2xl font-bold text-center">
+        Hoş Geldin,{" "}
+        <Text className="font-semibold text-red-800">
+          {firstName} {lastName}
+        </Text>
       </Text>
     </View>
   );

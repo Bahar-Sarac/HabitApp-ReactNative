@@ -9,8 +9,6 @@ export interface RegisterData {
 }
 
 export const RegisterService = async (data: RegisterData) => {
-  const response = await axios.post(`${BASE_URL}/users/register`, data, {
-    withCredentials: true,
-  });
+  const response = await axios.post(`${BASE_URL}/users/register`, data);
   return response.data;
 };

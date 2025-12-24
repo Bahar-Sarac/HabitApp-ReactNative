@@ -1,5 +1,5 @@
 import { useMe, User } from "@/hooks/auth/useMe";
-import { createContext, useEffect } from "react";
+import { createContext, useContext, useEffect } from "react";
 
 export interface UserContextType {
   user: User | null;
@@ -20,4 +20,12 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
       {children}
     </UserContext.Provider>
   );
+};
+
+export const useUser = () => {
+  const context = useContext(UserContext);
+  if (!context) {
+    throw new Error("useUser must be used within a UserProvider");
+  }
+  return context;
 };
