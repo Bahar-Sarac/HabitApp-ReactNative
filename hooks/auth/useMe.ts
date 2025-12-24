@@ -22,5 +22,5 @@ export const useMe = () => {
       console.error("Fetching user info failed:", error);
     }
   };
-  return { getMe };
+  return { getMe, user, setUser, loading};
 };
