@@ -1,29 +1,32 @@
-import React from 'react';
-import { FlatList, Text, TouchableOpacity, View } from 'react-native';
+import React from "react";
+import { FlatList, Text, TouchableOpacity, View } from "react-native";
 
 const eklenecekAliskanliklar = [
-  { id: '1', title: '2L Su İçmek 💧' },
-  { id: '2', title: 'Sabah Esnemesi 🧘' },
-  { id: '3', title: 'Kitap Okumak 📚' },
-  { id: '4', title: 'Egzersiz Yapmak 💪' },
-  { id: '5', title: 'Erken Kalkmak 🌅' },
-  { id: '6', title: 'Yabancı Dil Çalışmak 🗣️' },
-  { id: '7', title: 'Yürüyüşe Çıkmak 🚶🏻‍♀️' },
+  { id: "1", title: "2L Su İçmek 💧" },
+  { id: "2", title: "Sabah Esnemesi 🧘" },
+  { id: "3", title: "Kitap Okumak 📚" },
+  { id: "4", title: "Egzersiz Yapmak 💪" },
+  { id: "5", title: "Erken Kalkmak 🌅" },
+  { id: "6", title: "Yabancı Dil Çalışmak 🗣️" },
+  { id: "7", title: "Yürüyüşe Çıkmak 🚶🏻‍♀️" },
 ];
 
 /**
  * Tek bir yatay alışkanlık kartı (HabitCard).
  */
-const HabitCard = ({ title, onPress }: { title: string; onPress: () => void }) => (
+const HabitCard = ({
+  title,
+  onPress,
+}: {
+  title: string;
+  onPress: () => void;
+}) => (
   <TouchableOpacity
-    className="w-44 h-8 rounded-xl justify-center items-center shadow-lg active:bg-emerald-500"
+    className="w-44 h-10 rounded-xl justify-center items-center shadow-lg active:bg-emerald-500"
     onPress={onPress}
     activeOpacity={0.8}
   >
-    <Text
-      className="font-bold text-sm text-center p-1"
-      numberOfLines={2}
-    >
+    <Text className="font-bold text-sm text-center p-1" numberOfLines={2}>
       {title}
     </Text>
   </TouchableOpacity>
@@ -35,8 +38,9 @@ export const ExemplaryHabits = () => {
   };
 
   return (
-    <View className="mt-6 pb-5 bg-white border-t border-gray-100">
+    <View className="bg-white border-t border-gray-100 rounded-xl">
       <FlatList
+        style={{ paddingVertical: 8, paddingHorizontal: 16 }}
         data={eklenecekAliskanliklar}
         renderItem={({ item }) => (
           <HabitCard
@@ -44,7 +48,7 @@ export const ExemplaryHabits = () => {
             onPress={() => handlePress(item.title)}
           />
         )}
-        keyExtractor={item => item.id}
+        keyExtractor={(item) => item.id}
         horizontal={true} // Yatay kaydırmayı etkinleştirir
         showsHorizontalScrollIndicator={false} // Yatay kaydırma çubuğunu gizler
       />

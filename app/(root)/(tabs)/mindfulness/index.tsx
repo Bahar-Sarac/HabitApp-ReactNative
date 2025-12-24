@@ -13,9 +13,9 @@ export default function Mindfulness() {
   return (
     <ScrollView className="flex-1 px-4">
       <SafeAreaView className="flex flex-col gap-20">
-        <Header firstName={user?.firstName} lastName={user?.lastName}/>
+        <Header firstName={user?.firstName} lastName={user?.lastName} />
         <BreathingExercises />
-        <View className="text-left, bg-yellow-200">
+        <View className="text-left">
           <Recommendations />
         </View>
       </SafeAreaView>

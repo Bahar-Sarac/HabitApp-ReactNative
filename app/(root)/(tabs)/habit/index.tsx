@@ -3,7 +3,7 @@ import HabitListSection from "@/components/habit/HabitList";
 import { ExemplaryHabits } from "@/components/habit/HabitSuggestion";
 import { FontAwesome } from "@expo/vector-icons";
 import { BlurView } from "expo-blur";
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import {
   ScrollView,
   Text,
@@ -11,6 +11,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { coffee, socialmedia, work } from "../../../../utils/index";
 
 const HabitScreen = () => {
@@ -66,6 +67,20 @@ const HabitScreen = () => {
     dayIndex: number;
   } | null>(null);
 
+  const todayLabel = useMemo(() => {
+    const weekdays = [
+      "Pazar",
+      "Pazartesi",
+      "Salı",
+      "Çarşamba",
+      "Perşembe",
+      "Cuma",
+      "Cumartesi",
+    ];
+    const today = new Date();
+    return `${weekdays[today.getDay()]}, ${today.getDate()}`;
+  }, []);
+
   {
     /* Bekleyen onay */
   }
@@ -90,10 +105,10 @@ const HabitScreen = () => {
   };
 
   return (
-    <View className="flex-1 relative">
+    <SafeAreaView className="flex-1 relative">
       <ScrollView className="relative" contentContainerStyle={{ paddingBottom: 80 }}>
         {/* Header Section (My Challenges, Wed, 18) */}
-        <View className="flex flex-col gap-8 py-10 px-4">
+        <View className="flex flex-col gap-8 px-4">
           <View className="w-full flex-col gap-2">
             <View className="w-full flex-row items-center justify-between">
               <Text className="text-gray-800 font-bold text-3xl">Alışkanlıklarım</Text>
@@ -102,7 +117,7 @@ const HabitScreen = () => {
               </TouchableOpacity>
             </View>
             <View className="w-full">
-              <Text className="text-gray-500">Çarşamba, 18</Text>
+              <Text className="text-gray-500">{todayLabel}</Text>
             </View>
           </View>
 
@@ -219,7 +234,7 @@ const HabitScreen = () => {
           </View>
         </View>
       )}
-    </View>
+    </SafeAreaView>
   );
 };
 

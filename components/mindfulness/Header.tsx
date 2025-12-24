@@ -7,7 +7,6 @@ interface HeaderProps {
 }
 
 export default function Header({ firstName, lastName }: HeaderProps) {
-  console.log("Header component received firstName:", firstName);
   return (
     <View className="">
       <Text className="text-2xl font-bold text-center">
