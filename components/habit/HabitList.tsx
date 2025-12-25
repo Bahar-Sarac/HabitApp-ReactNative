@@ -15,6 +15,7 @@ const HabitListSection: React.FC<HabitListSectionProps> = ({
   habitList,
   requestApprove,
 }) => {
+  console.log("Rendering HabitListSection with habits:", habitList);
   return (
     <View className="flex-col gap-10">
       {habitList?.map((habit, index) => (

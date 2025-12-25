@@ -1,9 +1,12 @@
 import CompletedBar from "@/components/habit/CompletedBar";
 import HabitListSection from "@/components/habit/HabitList";
 import { ExemplaryHabits } from "@/components/habit/HabitSuggestion";
+import { useCreateHabit } from "@/hooks/habit/useCreateHabit";
+import { useCreateHabitDay } from "@/hooks/habit/useCreateHabitDay";
+import { useGetHabits } from "@/hooks/habit/useGetHabits";
 import { FontAwesome } from "@expo/vector-icons";
 import { BlurView } from "expo-blur";
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import {
   ScrollView,
   Text,
@@ -15,6 +18,10 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { coffee, socialmedia, work } from "../../../../utils/index";
 
 const HabitScreen = () => {
+  const { createHabit } = useCreateHabit();
+  const { createHabitDay } = useCreateHabitDay();
+  const { getHabits, habits } = useGetHabits();
+
   const [modalVisible, setModalVisible] = useState(false);
   const [approvedDayModalVisible, setApprovedDayModalVisible] = useState(false);
   const [newHabit, setNewHabit] = useState({
@@ -104,6 +111,41 @@ const HabitScreen = () => {
     setApprovedDayModalVisible(false);
   };
 
+  const handleCreateHabit = async () => {
+    try {
+      if (!newHabit.habitName) return;
+
+      // 1️⃣ Habit oluştur
+      const createdHabit = await createHabit({
+        habitName: newHabit.habitName,
+        habitImg: newHabit.habitImg,
+      });
+
+      // 2️⃣ Bugünün tarihini al
+      const today = new Date().toISOString().split("T")[0]; // yyyy-MM-dd
+
+      // 3️⃣ İlk gün kaydını oluştur
+      await createHabitDay(createdHabit.id, {
+        date: today,
+        completed: null,
+      });
+
+      // 4️⃣ UI temizle
+      setNewHabit({ habitName: "", habitImg: "" });
+      setModalVisible(false);
+
+      // 5️⃣ Alışkanlıkları yeniden yükle
+      await getHabits();
+    } catch (error) {
+      console.error("Habit creation flow failed:", error);
+    }
+  };
+
+  useEffect(() => {
+    getHabits();
+  }, []);
+  console.log("habits", habits);
+
   return (
     <SafeAreaView className="flex-1 relative">
       <ScrollView
@@ -133,7 +175,7 @@ const HabitScreen = () => {
 
           {/* Habit List Section */}
           <HabitListSection
-            habitList={habitList.map((habit) => ({
+            habitList={habits.map((habit) => ({
               habitName: habit.habitName,
               habitImg: habit.habitImg,
               days: habit.days,
@@ -178,54 +220,7 @@ const HabitScreen = () => {
                 />
                 <TouchableOpacity
                   className="bg-emerald-500 p-2 rounded-md"
-                  onPress={() => {
-                    setModalVisible(false);
-                    setHabitList([
-                      ...habitList,
-                      {
-                        habitName: newHabit.habitName,
-                        habitImg: socialmedia,
-                        days: [
-                          {
-                            date: "2026-01-01",
-                            day: "MONDAY",
-                            completed: null,
-                          },
-                          {
-                            date: "2026-01-02",
-                            day: "TUESDAY",
-                            completed: null,
-                          },
-                          {
-                            date: "2026-01-03",
-                            day: "WEDNESDAY",
-                            completed: null,
-                          },
-                          {
-                            date: "2026-01-04",
-                            day: "THURSDAY",
-                            completed: null,
-                          },
-                          {
-                            date: "2026-01-05",
-                            day: "FRIDAY",
-                            completed: null,
-                          },
-                          {
-                            date: "2026-01-06",
-                            day: "SATURDAY",
-                            completed: null,
-                          },
-                          {
-                            date: "2026-01-07",
-                            day: "SUNDAY",
-                            completed: null,
-                          },
-                        ],
-                      },
-                    ]);
-                    setNewHabit({ habitName: "", habitImg: "" });
-                  }}
+                  onPress={handleCreateHabit}
                 >
                   <Text className="text-center text-white">Oluştur</Text>
                 </TouchableOpacity>

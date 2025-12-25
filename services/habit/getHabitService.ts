@@ -13,5 +13,6 @@ export interface Habit {
 
 export const GetHabitService = async () => {
   const response = await api.get(`/habits`);
+  console.log("response-service", response);
   return response.data;
 };
