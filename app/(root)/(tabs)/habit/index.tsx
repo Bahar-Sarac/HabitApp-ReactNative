@@ -17,49 +17,49 @@ import { coffee, socialmedia, work } from "../../../../utils/index";
 const HabitScreen = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [approvedDayModalVisible, setApprovedDayModalVisible] = useState(false);
-  const [newHabit, setNewHabit] = useState("");
+  const [newHabit, setNewHabit] = useState({
+    habitName: "",
+    habitImg: "",
+  });
   const [habitList, setHabitList] = useState([
     {
-      title: "No caffeine",
-      icon: coffee,
-      todayList: [
-        { today: "Monday", completed: null },
-        { today: "Tuesday", completed: null },
-        { today: "Wednesday", completed: null },
-        { today: "Thursday", completed: null },
-        { today: "Friday", completed: null },
-        { today: "Saturday", completed: null },
-        { today: "Sunday", completed: null },
+      habitName: "No caffeine",
+      habitImg: coffee,
+      days: [
+        { date: "2026-01-01", day: "MONDAY", completed: null },
+        { date: "2026-01-02", day: "TUESDAY", completed: null },
+        { date: "2026-01-03", day: "WEDNESDAY", completed: null },
+        { date: "2026-01-04", day: "THURSDAY", completed: null },
+        { date: "2026-01-05", day: "FRIDAY", completed: null },
+        { date: "2026-01-06", day: "SATURDAY", completed: null },
+        { date: "2026-01-07", day: "SUNDAY", completed: null },
       ],
-      approved: false,
     },
     {
-      title: "No social media",
-      icon: socialmedia,
-      todayList: [
-        { today: "Monday", completed: null },
-        { today: "Tuesday", completed: null },
-        { today: "Wednesday", completed: null },
-        { today: "Thursday", completed: null },
-        { today: "Friday", completed: null },
-        { today: "Saturday", completed: null },
-        { today: "Sunday", completed: null },
+      habitName: "No social media",
+      habitImg: socialmedia,
+      days: [
+        { date: "2026-01-01", day: "MONDAY", completed: null },
+        { date: "2026-01-02", day: "TUESDAY", completed: null },
+        { date: "2026-01-03", day: "WEDNESDAY", completed: null },
+        { date: "2026-01-04", day: "THURSDAY", completed: null },
+        { date: "2026-01-05", day: "FRIDAY", completed: null },
+        { date: "2026-01-06", day: "SATURDAY", completed: null },
+        { date: "2026-01-07", day: "SUNDAY", completed: null },
       ],
-      approved: false,
     },
     {
-      title: "Work on my project",
-      icon: work,
-      todayList: [
-        { today: "Monday", completed: null },
-        { today: "Tuesday", completed: false },
-        { today: "Wednesday", completed: null },
-        { today: "Thursday", completed: null },
-        { today: "Friday", completed: null },
-        { today: "Saturday", completed: true },
-        { today: "Sunday", completed: null },
+      habitName: "Work on my project",
+      habitImg: work,
+      days: [
+        { date: "2026-01-01", day: "MONDAY", completed: null },
+        { date: "2026-01-02", day: "TUESDAY", completed: false },
+        { date: "2026-01-03", day: "WEDNESDAY", completed: null },
+        { date: "2026-01-04", day: "THURSDAY", completed: null },
+        { date: "2026-01-05", day: "FRIDAY", completed: null },
+        { date: "2026-01-06", day: "SATURDAY", completed: true },
+        { date: "2026-01-07", day: "SUNDAY", completed: null },
       ],
-      approved: false,
     },
   ]);
   const [pending, setPending] = useState<{
@@ -91,7 +91,7 @@ const HabitScreen = () => {
         habitIndex === pending.habitIndex
           ? {
               ...habit,
-              todayList: habit.todayList.map((day, dayIndex) =>
+              days: habit.days.map((day, dayIndex) =>
                 dayIndex === pending.dayIndex
                   ? { ...day, completed: value }
                   : day
@@ -106,12 +106,17 @@ const HabitScreen = () => {
 
   return (
     <SafeAreaView className="flex-1 relative">
-      <ScrollView className="relative" contentContainerStyle={{ paddingBottom: 80 }}>
+      <ScrollView
+        className="relative"
+        contentContainerStyle={{ paddingBottom: 80 }}
+      >
         {/* Header Section (My Challenges, Wed, 18) */}
         <View className="flex flex-col gap-8 px-4">
           <View className="w-full flex-col gap-2">
             <View className="w-full flex-row items-center justify-between">
-              <Text className="text-gray-800 font-bold text-3xl">Alışkanlıklarım</Text>
+              <Text className="text-gray-800 font-bold text-3xl">
+                Alışkanlıklarım
+              </Text>
               <TouchableOpacity onPress={() => setModalVisible(true)}>
                 <FontAwesome name="plus" color="#2563EB" size={20} />
               </TouchableOpacity>
@@ -122,13 +127,17 @@ const HabitScreen = () => {
           </View>
 
           <ExemplaryHabits />
-          
+
           {/* Completed Bar Section */}
           <CompletedBar />
 
           {/* Habit List Section */}
           <HabitListSection
-            habitList={habitList}
+            habitList={habitList.map((habit) => ({
+              habitName: habit.habitName,
+              habitImg: habit.habitImg,
+              days: habit.days,
+            }))}
             requestApprove={(habitIndex: number, dayIndex: number) => {
               setPending({ habitIndex, dayIndex });
               setApprovedDayModalVisible(true);
@@ -162,8 +171,10 @@ const HabitScreen = () => {
                 <TextInput
                   className="w-full border border-gray-200 rounded-md p-1"
                   placeholder="Alışkanlık adını giriniz"
-                  value={newHabit}
-                  onChangeText={setNewHabit}
+                  value={newHabit.habitName}
+                  onChangeText={(text) =>
+                    setNewHabit({ ...newHabit, habitName: text })
+                  }
                 />
                 <TouchableOpacity
                   className="bg-emerald-500 p-2 rounded-md"
@@ -172,21 +183,48 @@ const HabitScreen = () => {
                     setHabitList([
                       ...habitList,
                       {
-                        title: newHabit,
-                        icon: socialmedia,
-                        todayList: [
-                          { today: "Monday", completed: null },
-                          { today: "Tuesday", completed: null },
-                          { today: "Wednesday", completed: null },
-                          { today: "Thursday", completed: null },
-                          { today: "Friday", completed: null },
-                          { today: "Saturday", completed: null },
-                          { today: "Sunday", completed: null },
+                        habitName: newHabit.habitName,
+                        habitImg: socialmedia,
+                        days: [
+                          {
+                            date: "2026-01-01",
+                            day: "MONDAY",
+                            completed: null,
+                          },
+                          {
+                            date: "2026-01-02",
+                            day: "TUESDAY",
+                            completed: null,
+                          },
+                          {
+                            date: "2026-01-03",
+                            day: "WEDNESDAY",
+                            completed: null,
+                          },
+                          {
+                            date: "2026-01-04",
+                            day: "THURSDAY",
+                            completed: null,
+                          },
+                          {
+                            date: "2026-01-05",
+                            day: "FRIDAY",
+                            completed: null,
+                          },
+                          {
+                            date: "2026-01-06",
+                            day: "SATURDAY",
+                            completed: null,
+                          },
+                          {
+                            date: "2026-01-07",
+                            day: "SUNDAY",
+                            completed: null,
+                          },
                         ],
-                        approved: false,
                       },
                     ]);
-                    setNewHabit("");
+                    setNewHabit({ habitName: "", habitImg: "" });
                   }}
                 >
                   <Text className="text-center text-white">Oluştur</Text>

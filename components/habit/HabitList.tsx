@@ -4,14 +4,17 @@ import { Image, Text, TouchableOpacity, View } from "react-native";
 
 interface HabitListSectionProps {
   habitList?: {
-    title: string;
-    icon: any;
-    todayList: { today: string; completed: boolean | null }[];
+    habitName: string;
+    habitImg: any;
+    days: { date: string; day: string; completed: boolean | null }[];
   }[];
   requestApprove: (habitIndex: number, dayIndex: number) => void;
 }
 
-const HabitListSection: React.FC<HabitListSectionProps> = ({ habitList, requestApprove }) => {
+const HabitListSection: React.FC<HabitListSectionProps> = ({
+  habitList,
+  requestApprove,
+}) => {
   return (
     <View className="flex-col gap-10">
       {habitList?.map((habit, index) => (
@@ -23,12 +26,15 @@ const HabitListSection: React.FC<HabitListSectionProps> = ({ habitList, requestA
                 boxShadow: "2px 2px 5px 2px rgba(0, 0, 0, 0.1)",
               }}
             >
-              <Image source={habit.icon} className="w-full h-full object-cover" />
+              <Image
+                source={habit.habitImg}
+                className="w-full h-full object-cover"
+              />
             </View>
-            <Text className="font-semibold text-xl">{habit.title}</Text>
+            <Text className="font-semibold text-xl">{habit.habitName}</Text>
           </View>
           <View className="w-full flex-row flex-wrap items-center justify-between">
-            {habit.todayList.map((day, dayIndex) => (
+            {habit.days.map((day, dayIndex) => (
               <TouchableOpacity
                 key={dayIndex}
                 className={`w-12 h-12 rounded-full border border-gray-400 flex items-center justify-center ${
@@ -41,7 +47,7 @@ const HabitListSection: React.FC<HabitListSectionProps> = ({ habitList, requestA
                 }}
               >
                 {day.completed === null ? (
-                  <Text className="font-semibold">{day.today.charAt(0)}</Text>
+                  <Text className="font-semibold">{day.day.charAt(0)}</Text>
                 ) : day.completed ? (
                   <Text className="font-semibold text-gray-400">
                     <FontAwesome name="check" size={18} color={"white"} />

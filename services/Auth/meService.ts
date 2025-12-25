@@ -1,9 +1,8 @@
-import axios from "axios";
-import { BASE_URL } from "../config";
+import { api } from "../api";
 
 export const MeService = async (token: string) => {
   try {
-    const response = await axios.get(`${BASE_URL}/users/me`, {
+    const response = await api.get(`/users/me`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
